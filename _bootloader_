@@ -1,0 +1,48 @@
+<?php
+
+ini_set('display_errors', 1);
+
+//Define Site Folder Absolute Root
+define('SITE_ABSOLUTE_FILE_ROOT', realpath(dirname(__FILE__)));
+
+//Define Site Constants
+include(SITE_ABSOLUTE_FILE_ROOT.'/_LOAD_/class.phpguru.bootloader.php');
+
+PHPGURU_bootloader :: initSiteConstants();
+
+PHPGURU_bootloader :: staticIncludes();
+
+PHPGURU_bootloader :: autoLoad();
+
+PHPGURU_bootloader :: getDefaultModule();
+
+$db_array = array(
+			//array('driver'=>'mysql', 'server' => 'localhost', 'user' => 'root', 'password' => '', 'database' => 'phpguru'),
+			array('driver'=>'mysql', 'server' => 'localhost', 'user' => 'root', 'password' => '', 'database' => 'phpguru')	
+		 );
+
+$db = PHPGURU_bootloader :: getDBConnection($db_array);
+
+//DB-1
+//echo "<pre>"; print_r($db); die;
+/*
+$rs = $db[0]->Execute('select * from test1');
+print "<pre>";
+print_r($rs->GetRows());
+print "</pre>";
+*/
+/*
+//DB-2
+$rs1 = $db[1]->Execute('select * from test');
+print "<pre>";
+print_r($rs1->GetRows());
+print "</pre>";
+*/
+
+
+
+
+
+
+
+

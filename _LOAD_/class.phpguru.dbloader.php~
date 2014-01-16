@@ -1,0 +1,19 @@
+<?php
+
+	class PHPGURU_dbloader{
+
+		static function getDBConnection($dbDetails){
+			
+			for($i=0; $i< count($dbDetails); $i++){				
+				$db['db'.($i)] = ADONewConnection($dbDetails[$i]['driver']);
+				$db['db'.($i)]->debug = true;
+				$db['db'.($i)]->Connect($dbDetails[$i]['server'], $dbDetails[$i]['user'], $dbDetails[$i]['password'], $dbDetails[$i]['database']);
+			}
+			return $db;
+	
+		}
+
+	}
+
+
+?>

@@ -1,0 +1,36 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+/*
+$system_folder = "platform";
+
+if (strpos($system_folder, '/') === FALSE)
+{
+	if (function_exists('realpath') AND @realpath(dirname(__FILE__)) !== FALSE)
+	{
+		$system_folder = realpath(dirname(__FILE__)).'/'.$system_folder;
+	}
+}
+else
+{
+	// Swap directory separators to Unix style for consistency
+	$system_folder = str_replace("\\", "/", $system_folder); 
+}
+*/
+
+//Define Site Folder Absolute Root
+define('SITE_ABSOLUTE_FILE_ROOT', realpath(dirname(__FILE__)));
+
+//Define Site Constants
+include('_LOAD_/class.phpguru.bootloader.php');
+PHPGURU_bootloader :: initSiteConstants();
+
+echo SITE_ABSOLUTE_CONTAINER_ROOT;
+//Instantiate other necessary the application
+include(SITE_ABSOLUTE_CONTAINER_ROOT. '/class.phpguru.application.php');
+$application = PHPGURU_application :: init();
+
+
+
+
